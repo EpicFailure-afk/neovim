@@ -25,3 +25,9 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
+-- make ; behave as :
+local map = vim.keymap.set
+map("n", ";", ":", { desc = "CMD enter command mode" })
+
+-- Make Y behave like yy (yank current line)
+vim.keymap.set("n", "Y", "yy", { desc = "Yank line" })
