@@ -3,9 +3,15 @@ vim.cmd("let g:netrw_liststyle = 3")
 local opt = vim.opt
 
 opt.relativenumber = true
-
-
+vim.opt.cursorline = true
 opt.number = true
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#ff8800", bold = true })
+	end,
+})
 
 -- tabs & indentation
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
@@ -37,4 +43,3 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 -- split windows
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
-
